@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section#galeria {
+    background: #fff;
+    width: 700px;
+    height: 400px;
+    display: block;
+    overflow: hidden;
+    box-shadow: #999 0 0 15px;
+    margin: 50px auto;
+}
+section#galeria section#buttons {
+    display: table;
+    position: absolute;
+    margin: 5px;
+    z-index: 500;
+}
+
+section#galeria section#buttons a {
+    background: #333;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    font: 23pt Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+section#galeria ul {
+    list-style: none;
+    display: table;
+    position: relative;
+}
+
+section#galeria ul li {
+    width: 700px;
+    height: 400px;
+    display: inline-block;
+    position: relative;
+}
+
+section#galeria ul li img {
+    width: 100%;
+    height: 100%;
+}
+section#galeria ul li span {
+    background-color: #333;
+    width: 660px;
+    display: table;
+    padding: 10px;
+    opacity: 0.7;
+    position: absolute;
+    bottom: 0;
+    margin: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 10pt;
+    color: #fff;
+}

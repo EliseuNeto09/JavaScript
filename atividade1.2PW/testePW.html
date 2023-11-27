@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Contato</title>
+  <style>
+    .error {
+      color: rgb(236, 0, 0);
+    }
+    .highlight-error {
+      border: 1px solid rgb(236, 0, 0);
+    }
+    #contactForm {
+      text-align: center;
+    }
+    .enviar {
+      background-color: aqua;
+    }
+    body {
+      background-color: rgb(164, 148, 178);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Formulário de Contato</h2>
+  <form id="contactForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" size="20" maxlength="40">
+    <span id="nomeError" class="error"></span>
+
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" size="20" maxlength="40">
+    <span id="emailError" class="error"></span>
+
+    <br><br>
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" size="20" maxlength="40">
+    <span id="cidadeError" class="error"></span>
+
+    <br><br>
+
+    <label for="estado">Estado:</label>
+    <select name="estado" id="estado">
+      <option value="">Selecione o estado</option>
+      <option value="BA">Bahia</option>
+      <option value="MG">Minas Gerais</option>
+      <option value="RJ">Rio de Janeiro</option>
+      <option value="AM">Amazonas</option>
+    </select>
+    <span id="estadoError" class="error"></span>
+
+    <br><br>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem"></textarea>
+    <span id="mensagemError" class="error"></span>
+
+    <br><br>
+
+    <input class="enviar" type="submit" value="Enviar">
+  </form>
+
+  <script>
+    function showError(elementId, errorMessage) {
+      document.getElementById(elementId).textContent = errorMessage;
+    }
+
+    function highlightError(elementId, highlight) {
+      const element = document.getElementById(elementId);
+      if (highlight) {
+        element.classList.add('highlight-error');
+      } else {
+        element.classList.remove('highlight-error');
+      }
+    }
+
+    function validateNome() {
+      const nome = document.getElementById('nome').value;
+      if (nome.trim() === '') {
+        showError('nomeError', 'Por favor, digite seu nome.');
+        highlightError('nome', true);
+        return false;
+      } else {
+        showError('nomeError', '');
+        highlightError('nome', false);
+        return true;
+      }
+    }
+
+    function validateEmail() {
+      const email = document.getElementById('email').value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showError('emailError', 'Por favor, digite um email válido.');
+        highlightError('email', true);
+        return false;
+      } else {
+        showError('emailError', '');
+        highlightError('email', false);
+        return true;
+      }
+    }
+
+    function validateCidade() {
+      const cidade = document.getElementById('cidade').value;
+      if (cidade.trim() === '') {
+        showError('cidadeError', 'Por favor, digite sua cidade.');
+        highlightError('cidade', true);
+        return false;
+      } else {
+        showError('cidadeError', '');
+        highlightError('cidade', false);
+        return true;
+      }
+    }
+
+    function validateEstado() {
+      const estado = document.getElementById('estado').value;
+      if (estado === '') {
+        showError('estadoError', 'Por favor, selecione um estado.');
+        highlightError('estado', true);
+        return false;
+      } else {
+        showError('estadoError', '');
+        highlightError('estado', false);
+        return true;
+      }
+    }
+
+    function validateMensagem() {
+      const mensagem = document.getElementById('mensagem').value;
+      if (mensagem.trim() === '') {
+        showError('mensagemError', 'Por favor, digite sua mensagem.');
+        highlightError('mensagem', true);
+        return false;
+      } else {
+        showError('mensagemError', '');
+        highlightError('mensagem', false);
+        return true;
+      }
+    }
+
+    function validateForm() {
+      const isNomeValid = validateNome();
+      const isEmailValid = validateEmail();
+      const isCidadeValid = validateCidade();
+      const isEstadoValid = validateEstado();
+      const isMensagemValid = validateMensagem();
+
+      return isNomeValid && isEmailValid && isCidadeValid && isEstadoValid && isMensagemValid;
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      // Realizar a validação do formulário ao submeter
+      if (!validateForm()) {
+        event.preventDefault(); // Impedir o envio do formulário se houver erros
+      }
+    });
+
+    // Adicionar validação em tempo real (exemplo: ao perder o foco de um campo)
+    document.getElementById('nome').addEventListener('blur', validateNome);
+    document.getElementById('email').addEventListener('blur', validateEmail);
+    document.getElementById('cidade').addEventListener('blur', validateCidade);
+    document.getElementById('estado').addEventListener('change', validateEstado);
+    document.getElementById('mensagem').addEventListener('blur', validateMensagem);
+  </script>
+</body>
+</html>
