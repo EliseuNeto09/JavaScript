@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Fatorial</title>
+</head>
+<body>
+    <style>
+        body{
+            justify-content: center;
+            text-align: center;
+            margin: 0 auto;
+            background-color: rgb(145, 99, 83);
+        } 
+        #formulario{
+            color: black;
+            text-align: center;
+        }
+        #resultado{
+            color: whitesmoke;
+        }
+        </style>
+  <h1>Calculadora de Fatorial</h1>
+  <form id="formulario">
+    <label for="numero">Digite um número inteiro:</label>
+    <input type="number" id="numero" required>
+    <input type="submit" value="Calcular Fatorial">
+  </form>
+  <p id="resultado"></p>
+     
+  <script>
+    function calcularFatorial(n) {
+      if (n === 0 || n === 1) {
+        return 1;
+      } else {
+        return n * calcularFatorial(n - 1);
+      }
+    }
+
+    document.getElementById("formulario").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var numero = parseInt(document.getElementById("numero").value);
+      var resultadoElement = document.getElementById("resultado");
+
+      if (isNaN(numero)) {
+        resultadoElement.textContent = "Por favor, insira um número válido.";
+      } else {
+        var fatorial = calcularFatorial(numero);
+        resultadoElement.textContent = "O fatorial de " + numero + " é " + fatorial + ".";
+      }
+    });
+  </script>
+</body>
+</html>

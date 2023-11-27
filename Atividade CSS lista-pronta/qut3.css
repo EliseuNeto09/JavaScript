@@ -1,0 +1,45 @@
+table {
+    width: 600px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px; 
+  }
+  .header {
+    background-color:#66C5E3;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  
+  .position {
+    background-color: silver;
+    font-weight: bold;
+    text-align: center;
+  }
+  .position {
+    width: 10%;
+  }
+  .population {
+    background-color: #C7E7F3;
+    font-weight: bold;  
+  }
+  .population {
+  width: 15%;
+  }
+  .cidade {
+    background-color: #C7E7F3;
+    font-weight: bold;
+    color: #0D5188;
+    width: 18%;
+  }
+  tr:nth-child(even) {
+    background-color: #66C5E3;
+  }
+  tr:nth-child(odd) {
+    background-color: #0D5188;
+  }
+  .cabeca {
+    color: white;
+  }
+  td {
+    font-size: 12px;
+  }

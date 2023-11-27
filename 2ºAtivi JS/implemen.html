@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Máximo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(135, 57, 57);
+      text-align: center;
+      margin-top: 250px;
+    }
+    #container {
+      margin: 20px;
+    }
+    #resultado {
+      font-size: 24px;
+      color: antiquewhite;
+    }
+    p{ 
+        font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Máximo</h1>
+  <div id="container">
+    <p>Digite os números separados por vírgulas:</p>
+    <input type="text" id="numeros" placeholder="Exemplo: 5, 8, 5.6, 9.9">
+    <button onclick="calcularMaximo()">Calcular Máximo</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function calcularMaximo() {
+      const numeros = document.getElementById("numeros").value
+        .split(',')
+        .map(parseFloat);
+
+      if (numeros.length === 0 || numeros.some(isNaN)) {
+        document.getElementById("resultado").textContent = "Por favor, insira números válidos.";
+        return;
+      }
+
+      const max = Math.max(...numeros);
+
+      document.getElementById("resultado").textContent = "O maior número é: " + max;
+    }
+  </script>
+</body>
+</html>

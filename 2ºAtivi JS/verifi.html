@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verificador de Números Pares e Ímpares</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(117, 69, 117);
+    }
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+      color: rgb(75, 173, 141);
+    }
+  </style>
+</head>
+<body>
+  <h1>Verificador de Números Pares e Ímpares</h1>
+  <p>Digite um número para verificar se ele é par ou ímpar:</p>
+  <input type="number" id="numero" placeholder="Digite um número">
+  <button onclick="verificarParOuImpar()">Verificar</button>
+  <div class="result" id="resultado"></div>
+
+  <script>
+    function verificarParOuImpar() {
+      var numero = document.getElementById("numero").value;
+      var resultadoElement = document.getElementById("resultado");
+
+      if (numero % 2 === 0) {
+        resultadoElement.textContent = "O número " + numero + " é PAR.";
+      } else {
+        resultadoElement.textContent = "O número " + numero + " é ÍMPAR.";
+      }
+    }
+  </script>
+</body>
+</html>

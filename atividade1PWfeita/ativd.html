@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Contato</title>
+  <style>
+    .error {
+      color: rgb(236, 0, 0);
+    }
+    #contactForm{
+        text-align: center;
+        
+    }
+    .enviar{
+        background-color: aqua;
+    }
+    body{
+        background-color: rgb(164, 148, 178);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Formulário de Contato</h2>
+  <form id="contactForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" size="20" maxlength="40">
+    <span id="nomeError" class="error"></span>
+
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" size="20" maxlength="40">
+    <span id="emailError" class="error"></span>
+
+    <br><br>
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" size="20" maxlength="40">
+    <span id="cidadeError" class="error"></span>
+
+    <br><br>
+
+    <label for="estado">Estado:</label>
+    <select name="estado" id="estado">
+      <option value="">Selecione o estado</option>
+      <option value="BA">Bahia</option>
+      <option value="MG">Minas Gerais</option>
+      <option value="RJ">Rio de Janeiro</option>
+      <option value="AM">Amazonas</option>
+    </select>
+    <span id="estadoError" class="error"></span>
+    <br><br>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem"></textarea>
+    <span id="mensagemError" class="error"></span>
+
+    <br><br>
+
+    <input class="eniar" type="submit" value="Enviar">
+  </form>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      // Resetar mensagens de erro
+      document.getElementById('nomeError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('cidadeError').textContent = '';
+      document.getElementById('estadoError').textContent = '';
+      document.getElementById('mensagemError').textContent = '';
+
+      // Verificar o nome
+      var nome = document.getElementById('nome').value;
+      if (nome === '') {
+        document.getElementById('nomeError').textContent = 'Por favor, digite seu nome.';
+        event.preventDefault();
+      }
+
+      // Verificar o email
+      var email = document.getElementById('email').value;
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = 'Por favor, digite um email válido.';
+        event.preventDefault();
+      }
+
+      // Verificar a cidade
+      var cidade = document.getElementById('cidade').value;
+      if (cidade === '') {
+        document.getElementById('cidadeError').textContent = 'Por favor, digite sua cidade.';
+        event.preventDefault();
+      }
+
+      // Verificar o estado
+      var estado = document.getElementById('estado').value;
+      if (estado === '') {
+        document.getElementById('estadoError').textContent = 'Por favor, selecione um estado.';
+        event.preventDefault();
+      }
+
+      // Verificar a mensagem
+      var mensagem = document.getElementById('mensagem').value;
+      if (mensagem === '') {
+        document.getElementById('mensagemError').textContent = 'Por favor, digite sua mensagem.';
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

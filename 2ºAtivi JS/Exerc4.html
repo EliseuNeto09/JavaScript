@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplicador de Array</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 230px;
+      background-color: rgb(108, 77, 77);
+    }
+    #container {
+      margin: 20px;
+    }
+    #resultado {
+      font-size: 24px;
+      color: bisque;
+    }
+    p{
+        font-size: 19px;
+        color: rgb(0, 0, 0);
+    }
+    button{
+        color:rgb(35, 170, 107);
+        background-color: rgb(79, 77, 97);
+    }
+  </style>
+</head>
+<body>
+  <h1>Multiplicador de Array</h1>
+  <div id="container">
+    <p>Insira números separados por vírgulas no array:</p>
+    <input type="text" id="numeros" placeholder="Exemplo: 2, 4, 6, 8">
+    <p>Digite o número para multiplicar o array:</p>
+    <input type="number" id="multiplicador" placeholder="Exemplo: 3">
+    <button onclick="multiplicarArray()">Multiplicar</button>
+    <p id="resultado"></p>
+  </div>
+
+  <script>
+    function multArray(arr, multiplicador) {
+      return arr.map(function (num) {
+        return num * multiplicador;
+      });
+    }
+
+    function multiplicarArray() {
+      const numeros = document.getElementById("numeros").value
+        .split(',')
+        .map(parseFloat);
+
+      const multiplicador = parseFloat(document.getElementById("multiplicador").value);
+
+      if (numeros.length === 0 || numeros.some(isNaN) || isNaN(multiplicador)) {
+        document.getElementById("resultado").textContent = "Por favor, insira números válidos.";
+        return;
+      }
+
+      const resultado = multArray(numeros, multiplicador);
+
+      document.getElementById("resultado").textContent = "Resultado: " + resultado.join(', ');
+    }
+  </script>
+</body>
+</html>

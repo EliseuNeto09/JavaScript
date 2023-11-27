@@ -1,0 +1,131 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+
+.classificacao {
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid #DDDDDD;
+  border-collapse: collapse;
+}
+
+caption {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+th {
+  font-size: 13px;
+  color: #999999;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  font-weight: bold;
+  
+}
+
+td {
+  font-size: 14px;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #DDDDDD; 
+  border-width: 0cm;
+}
+.time{
+  font-size: 14px;
+  color: #666666;
+  text-align: left;
+  font-weight: bold;
+}
+.pontos{
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  background-color: #F7F7F7;
+}
+table th {
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+ 
+}
+td:nth-child(3),
+td:nth-child(5),
+td:nth-child(7),
+td:nth-child(9),
+td:nth-child(11) {
+  background-color: #F7F7F7;
+}
+.posicao {
+  width: 10%;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+  width: 6%;
+}
+
+.azul-marinho {
+  color: #003366;
+}
+
+.azul-celeste {
+  color: #1398BE;
+}
+
+.laranja {
+  color: #DE9800;
+}
+
+.cinza {
+  color: #CCCCCC;
+}
+
+.vermelho {
+  color: #C91B04;
+}
+
+.linha {
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.linha:nth-child(4),
+.linha:nth-child(17) {
+  border-bottom: 2px solid #CCCCCC;
+}
+
+.legenda {
+  color: #555555;
+  text-align: left;
+  font-size: 10px;
+ 
+}
+
+.legenda span {
+  text-align: left;
+  font-size: 10px;
+  
+  
+}
+.image{
+  text-align: left;
+    width: 15px;
+    height: 15px;
+    border-radius: 10%;
+    
+}
+.sigla{
+    font-size: 10px; 
+    color: #555555;
+    font-weight: bold;
+    text-align: left;
+}
+
+
+
