@@ -1,0 +1,47 @@
+// 8. Faça um programa que peça para o usuário pensar em número de 1 a 4 e depois pergunte
+// se o número é maior que 2 (S-Sim ou N-Não), e caso seja maior que 2, pergunte se ele é
+// maior que 3, ou caso não seja maior que 2, pergunte se é maior que 1. Ao final o programa
+// deve mostrar o número que o usuário pensou.
+
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+
+    setlocale(NULL,"Portuguese");
+
+    char resp;
+
+    printf("\nPense em um número de 1 a 4...");
+
+    printf("\nO número que pensou é maior 2? [s/n] ");
+    scanf("%c", &resp);
+    getchar();
+
+    if(resp == 's'){
+        printf("\nO número que pensou é maior 3? [s/n] ");
+        scanf("%c", &resp);
+        getchar();
+        if(resp == 's'){
+            printf("\nVocê pensou no número 4.");
+        }else if(resp == 'n'){
+            printf("\nVocê pensou no número 3.");
+        }else{
+            printf("\nResposta invalida. ");
+        }  
+    }else if(resp == 'n'){
+        printf("\nO número que pensou é maior 1? [s/n] ");
+        scanf("%c", &resp);
+        getchar();
+        if(resp == 's'){
+            printf("\nVocê pensou no número 2.");
+        }else if(resp == 'n'){
+            printf("\nVocê pensou no número 1.");
+        }else{
+            printf("\nResposta invalida. ");
+        }
+    }else{
+        printf("\nResposta invalida. ");
+    }
+    return 0;
+}
